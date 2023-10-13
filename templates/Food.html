@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recommendations</title>
+    <link rel="stylesheet" href="/static/css/Food.css">
+</head>
+<body >
+    <header>
+        <h1><b>Category</b></h1>
+    </header>
+    <div class="main" style="padding-left:350px;padding-top:50px;" >
+        <button class="showPopupButton">
+            <div class="food-card">
+                <img src="/static/assets/veg.jpeg" alt="Vegetables" style="width:200px; height: 133px;">
+                <h3>Vegetables</h3>
+                <!-- Add vegetable recommendations here -->
+            </div>
+        </button>
+        <button class="showPopupButton">
+            <div class="food-card">
+                <img src="/static/assets/fryits.jpeg" alt="Fruits" style="width:200px; height: 133px;">
+                <h3>Fruits</h3>
+                <!-- Add fruit recommendations here -->
+            </div>
+        </button >
+        <button class="showPopupButton">
+            <div class="food-card">
+                <img src="/static/assets/dry.jpeg" alt="Dry Fruits" style="width:200px; height: 133px;">
+                <h3>Dry Fruits</h3>
+                <!-- Add dry fruit recommendations here -->
+            </div>
+        </button>
+        <br> <br>
+        <button class="showPopupButton">
+        <div class="food-category">
+            <div class="food-card">
+                <img src="/static/assets/milk.jpeg" alt="Milk Products" style="width:200px; height: 133px;">
+                <h3>Milk Products</h3>
+                <!-- Add milk product recommendations here -->
+            </div>
+        </button >
+            <button class="showPopupButton">
+            <div class="food-card" >
+                <img src="/static/assets/bak.jpeg" alt="Bakery Products" style="width:200px; height: 133px;">
+                <h3>Bakery Products</h3>
+                <!-- Add bakery product recommendations here -->
+            </div>
+        </button>
+        
+        
+        <button class="showPopupButton">
+            <div class="food-card">
+                <img src="/static/assets/meat.jpg" alt="Meat, Eggs, and Fish" style="width:200px; height: 133px;">
+                <h3>Meat, Eggs, and Fish</h3>
+                <!-- Add meat, eggs, and fish recommendations here -->
+            </div>
+        </button>
+        
+        </div>
+    </div>
+    
+    <div class="popup-container" id="popupContainer1">
+        <div class="popup-box">
+        <span class="popup-close" onclick="closePopup('popupContainer1')">&times;</span>
+        <table border="1" >
+            <tr>
+                <td>id</td>
+                <td>Vegetable_name</td>
+                <td>Portion_size_per_100g</td>
+                <td>Calories</td>
+                <td>Nutritional_content</td>
+                <td>Add to cart</td>
+            </tr>
+            {% for a in veg1 %}
+            <tr>
+              <td>{{a.id}}</td>
+              <td>{{a.Vegetable_name}}</td>
+              <td>{{a.Portion_size_per_100g}}</td>
+              <td>{{a.Calories}}</td>
+              <td>{{a.Nutritional_content}}</td>
+              <td><button onclick="addToCart('{{a.Vegetable_name}}',{{a.Calories}})">Add</button></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+    <div class="popup-container" id="popupContainer4">
+        <div class="popup-box">
+        <span class="popup-close" onclick="closePopup('popupContainer4')">&times;</span>
+        <table border="1" >
+            
+            <tr>
+                <td>id</td>
+                <td>milkproducts_name</td>
+                <td>Portion_size_per_100g</td>
+                <td>Calories</td>
+                <td>Nutritional_content</td>
+                <td>Add to cart</td>
+            </tr>
+            {% for a in milk1 %}
+            <tr>
+              <td>{{a.id}}</td>
+              <td>{{a.milkproducts_name}}</td>
+              <td>{{a.Portion_size_per_100g}}</td>
+              <td>{{a.Calories}}</td>
+              <td>{{a.Nutritional_content}}</td>
+              <td><button onclick="addToCart('{{a.milkproducts_name}}',{{a.Calories}})">Add</button></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+    <div class="popup-container" id="popupContainer5">
+        <div class="popup-box">
+        <span class="popup-close" onclick="closePopup('popupContainer5')">&times;</span>
+        <table border="1" >
+            
+            <tr>
+                <td>id</td>
+                <td>Bakery_name</td>
+                <td>Portion_size_per_100g</td>
+                <td>Calories</td>
+                <td>Nutritional_content</td>
+                <td>Add to cart</td>
+            </tr>
+            {% for a in bak1 %}
+            <tr>
+              <td>{{a.id}}</td>
+              <td>{{a.Bakery_name}}</td>
+              <td>{{a.Portion_size_per_100g}}</td>
+              <td>{{a.Calories}}</td>
+              <td>{{a.Nutritional_content}}</td>
+              <td><button onclick="addToCart('{{a.Bakery_name}}',{{a.Calories}})">Add</button></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+    <div class="popup-container" id="popupContainer2">
+        <div class="popup-box">
+        <span class="popup-close" onclick="closePopup('popupContainer2')">&times;</span>
+        <table border="1" >
+            
+            <tr>
+                <td>id</td>
+                <td>fruits_name</td>
+                <td>Portion_size_per_100g</td>
+                <td>Calories</td>
+                <td>Nutritional_content</td>
+                <td>Add to cart</td>
+            </tr>
+            {% for a in frut1 %}
+            <tr>
+              <td>{{a.id}}</td>
+              <td>{{a.fruits_name}}</td>
+              <td>{{a.Portion_size_per_100g}}</td>
+              <td>{{a.Calories}}</td>
+              <td>{{a.Nutritional_content}}</td>
+              <td><button onclick="addToCart('{{a.fruits_name}}',{{a.Calories}})">Add</button></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+    <div class="popup-container" id="popupContainer3">
+        <div class="popup-box">
+        <span class="popup-close" onclick="closePopup('popupContainer3')">&times;</span>
+        <table border="1" >
+            
+            <tr>
+                <td>id</td>
+                <td>dryfruit_name</td>
+                <td>Portion_size_per_100g</td>
+                <td>Calories</td>
+                <td>Nutritional_content</td>
+                <td>Add to cart</td>
+            </tr>
+            {% for a in dry1 %}
+            <tr>
+              <td>{{a.id}}</td>
+              <td>{{a.dryfruit_name}}</td>
+              <td>{{a.Portion_size_per_100g}}</td>
+              <td>{{a.Calories}}</td>
+              <td>{{a.Nutritional_content}}</td>
+              <td><button onclick="addToCart('{{a.dryfruit_name}}',{{a.Calories}})">Add</button></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+    <div class="popup-container" id="popupContainer6">
+        <div class="popup-box">
+        <span class="popup-close" onclick="closePopup('popupContainer6')">&times;</span>
+        <table border="1" >
+            
+            <tr>
+                <td>id</td>
+                <td>meat_name</td>
+                <td>Portion_size_per_100g</td>
+                <td>Calories</td>
+                <td>Nutritional_content</td>
+                <td>Add to cart</td>
+            </tr>
+            {% for a in meat1 %}
+            <tr>
+              <td>{{a.id}}</td>
+              <td>{{a.meat_name}}</td>
+              <td>{{a.Portion_size_per_100g}}</td>
+              <td>{{a.Calories}}</td>
+              <td>{{a.Nutritional_content}}</td>
+              <td><button onclick="addToCart('{{a.meat_name}}',{{a.Calories}})">Add</button></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+    <div class="cart-button" onclick="openCart()">
+        <img src="/static/assets/cart.png" alt="Cart" height=30px,width=20px>
+    </div>
+
+    <div class="cart-container" id="cart-container">
+        <div class="close-button" onclick="closeCart()">Close</div>
+        <h2>Food Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total Kcal: <span id="cart-total"> 0</span></p>
+    </div>
+    <script src="/static/js/Food.js"></script>
+</body>
+</html>

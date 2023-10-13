@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/Bmi_new.css">
+    <title>BMI Calculator</title>
+</head>
+<body>
+
+    </div>
+    <div class="calculator">
+        <h1>BMI CALCULATOR</h1>
+        
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" id="weight" placeholder="Enter weight"required>
+        <label for="height">Height (in cm):</label>
+        <input type="number" id="height" placeholder="Enter height"required>
+        <br>
+        <br>
+     
+       
+        <button id="calculate">CALCULATE BMI</button>
+        <div id="result"></div>
+    </div>
+    <script>
+      document.getElementById("calculate").addEventListener("click", function() {
+        const weight = parseFloat(document.getElementById("weight").value);
+        const height = parseFloat(document.getElementById("height").value) / 100; // Convert cm to m
+    
+        if (isNaN(weight) || isNaN(height) || height <= 0)  {
+            document.getElementById("result").innerHTML = "Please enter valid values.";
+            return;
+        }
+    
+        const bmi = weight / (height * height);
+        const result = `&#160; Your BMI is ${bmi.toFixed(2)}.`;
+        let interpretation = "";
+        if (bmi < 18.5) {
+            interpretation = "Underweight";
+        } else if (bmi < 24.9) {
+            interpretation = "Normal weight";
+        } else if (bmi < 29.9) {
+            interpretation = "Overweight";
+        } else {
+            interpretation = "Obese";
+        }
+    
+        document.getElementById("result").innerHTML = `${result} You are ${interpretation}.`;
+    });
+    </script>
+</body>
+</html>

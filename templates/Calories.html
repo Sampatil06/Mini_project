@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/Calories.css">
+    <title>Calories Required Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calories Required Calculator</h1>
+        <form id="calories-form">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required>
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height" required>
+            <br>
+            <br>
+
+            <button type="button" id="calculate">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="/static/js/Calories.js"></script>
+</body>
+</html>
